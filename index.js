@@ -69,8 +69,12 @@ const ganador = () => {
        (datos[2]==datos[4] && datos[2]==datos[6]&& datos[2]!=="")){//checo la segunda diagonal
         
         gan = true;
-        if (gan&&turno){alert("Ganó jugador O")}
-        else if (gan){alert("Ganó jugador X")}
+        if (gan&&turno){
+           setTimeout(()=> alert("Ganó jugador O"),100);
+        }
+        else if (gan){
+            setTimeout(()=> alert("Ganó jugador X"),100);
+        }
     }
     else if(cont == 9){
        alert("Empate");
