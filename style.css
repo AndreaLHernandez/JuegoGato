@@ -52,6 +52,16 @@
 
 
 }
+div #r:hover{
+    background-color: #7b0c97;
+    cursor: pointer;
+
+}
+
+.cuadro div:hover{
+    background-color: #f3d5f7;
+    cursor: pointer;
+}
 .boton{
     background-color: #d36ae0;
     font-size: 20px;
