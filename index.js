@@ -7,19 +7,25 @@ let cont=0;
 const cli = (even) => {//fucnión que recibe un evento
     const {id} = even.target;//target es el elemento que disparó el evento
     const div = document.getElementById(id);//obtengo el ID del elemento que disparó el evento
+    const t = turno;
+        if(t){
+            document.getElementById("x").innerText="Turno jugador X";
+            document.getElementById("x").className="activo";
+            document.getElementById("o").innerText="Jugador O";
+            document.getElementById("o").className="noActivo";
+        }else{
+            document.getElementById("o").innerText="Turno jugador O";
+            document.getElementById("o").className="activo";
+            document.getElementById("x").innerText="Jugador X";
+            document.getElementById("x").className="noActivo";
+        }
     if(div.innerText == ""&& gan==false){//si el div esta vacio
         div.innerText = turno ? "O" : "X";//Si turno es false entonces escribo X, si es false entonces O
-        // if (turno){//si turno es true
-        //     const botturno = document.getElementById(o).style.backgroundColor="red";
-        //     // botturno.getComputedStyle().backgroundColor = "red";
-        // }else{
-        //     const botturn = document.getElementById(x).style.backgroundColor="red";
-        //     // botturn.getComputedStyle().backgroundColor = "blue";
-        // } 
         cont++;
         ganador();  
         turno = !turno;//cambio el valor de turno
         //Falta anadir que se cambie el boton turno
+        
         
     }
     
@@ -31,6 +37,11 @@ const reiniciar = () => {
     turno=false;
     gan=false;
     cont=0;
+
+    document.getElementById("x").innerText="Turno jugador X";
+            document.getElementById("x").className="activo";
+            document.getElementById("o").innerText="Jugador O";
+            document.getElementById("o").className="noActivo";
     
     for (let i=0;i<9;i++){
         const di = document.getElementById(i+1);
@@ -58,8 +69,8 @@ const ganador = () => {
        (datos[2]==datos[4] && datos[2]==datos[6]&& datos[2]!=="")){//checo la segunda diagonal
         
         gan = true;
-        if (gan&&turno){alert("Gana: O")}
-        else if (gan){alert("Gana: X")}
+        if (gan&&turno){alert("Ganó jugador O")}
+        else if (gan){alert("Ganó jugador X")}
     }
     else if(cont == 9){
        alert("Empate");
